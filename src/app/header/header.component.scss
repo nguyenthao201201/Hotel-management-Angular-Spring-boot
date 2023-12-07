@@ -52,14 +52,12 @@
 .welcome-text {
   text-align: center;
 }
-
 .phone {
   display: inline-block;
   font-size: 16px;
   margin-right: 20px;
   font-family: Open Sans;
 }
-
 .book {
   text-decoration: none;
   color: #000;
@@ -71,7 +69,17 @@
   margin-left: 20px;
   margin-right: 10px;
 }
-
+.login {
+  text-decoration: none;
+  color: black;
+  font-weight: 550;
+  font-family: Open Sans;
+  font-size: 16px;
+  font-style: normal;
+  line-height: normal;
+  margin-left: 20px;
+  margin-right: 10px;
+}
 .logo {
   flex-shrink: 1; 
 }
@@ -79,8 +87,6 @@
   flex-shrink: 0; 
   min-width: 320px;
 }
-
-
 .divider {
   border: none;
   height: 1px;

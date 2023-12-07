@@ -13,6 +13,10 @@ import { RoomsComponent } from './rooms/rooms.component';
 import { ServicesComponent } from './services/services.component';
 import { NewsComponent } from './news/news.component';
 import { ContactComponent } from './contact/contact.component';
+import { OrderComponent } from './order/order.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { OrderConfirmComponent } from './order-confirm/order-confirm.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,11 @@ import { ContactComponent } from './contact/contact.component';
     RoomsComponent,
     ServicesComponent,
     NewsComponent,
-    ContactComponent
+    ContactComponent,
+    OrderComponent,
+    LoginComponent,
+    RegisterComponent,
+    OrderConfirmComponent
   ],
   imports: [
     BrowserModule,

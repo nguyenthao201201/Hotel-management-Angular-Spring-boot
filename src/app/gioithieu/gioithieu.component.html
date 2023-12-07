@@ -1,85 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <app-header></app-header>
   <!-- content -->
   <div class="middle-bar">
     <img src="assets/about1.png" style="text-align: center" alt="KimBao Hotel">
   </div>
-  <div>
-    <h1 style ="text-align: center;">Giới thiệu</h1>
-    <div class = "about-container">
-      <div class = "about-content">
-        <p> <strong>Khách sạn Kim Bảo</strong> đạt tiêu chuẩn 3 sao tọa lạc tại số 16 Vương Chiêu, TP Hải Dương. Nằm cạnh đường quốc lộ số 5, Quý khách chỉ mất 2 phút để đi bộ tới hồ Bạch Đằng và 15 phút để tới trung tâm thành phố. Với 40 căn hộ và 27 phòng khách sạn đạt tiêu chuẩn, thiết kế hiện đại, trang thiết bị được đầu tư mới hoàn toàn sẽ mang lại cho quý khách sự tiện nghi, thoải mái và sang trọng. Khách sạn còn sở hữu 1 nhà hàng, 1 quầy bar-café, 1 phòng hội nghị và sự kiện với sức chứa tối đa 150 khách, bể bơi ngoài trời và 1 phòng tập Gym đáp ứng mọi nhu cầu thiết yếu của quý khách trong thời gian lưu trú tại đây.</p>
-        <h4>Thông tin khách sạn:</h4>
-        <ul>
-          <li>Giờ nhận phòng: 2:00 PM</li>
+  <h1 style="text-align: center;">Giới thiệu</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div class="about-content">
+          <p> <strong>Khách sạn Kim Bảo</strong> đạt tiêu chuẩn 3 sao tọa lạc tại số 16 Vương Chiêu, TP Hải Dương. Nằm
+            cạnh đường quốc lộ số 5, Quý khách chỉ mất 2 phút để đi bộ tới hồ Bạch Đằng và 15 phút để tới trung tâm
+            thành phố. Với 40 căn hộ và 27 phòng khách sạn đạt tiêu chuẩn, thiết kế hiện đại, trang thiết bị được đầu tư
+            mới hoàn toàn sẽ mang lại cho quý khách sự tiện nghi, thoải mái và sang trọng. Khách sạn còn sở hữu 1 nhà
+            hàng, 1 quầy bar-café, 1 phòng hội nghị và sự kiện với sức chứa tối đa 150 khách, bể bơi ngoài trời và 1
+            phòng tập Gym đáp ứng mọi nhu cầu thiết yếu của quý khách trong thời gian lưu trú tại đây.</p>
+          <h4>Thông tin khách sạn:</h4>
+          <ul>
+            <li>Giờ nhận phòng: 2:00 PM</li>
             <li>Giờ trả phòng: 12:00 PM</li>
             <li>Bãi đỗ xe miễn phí</li>
             <li>Dịch vụ taxi</li>
             <li>Dịch vụ wi-fi miễn phí</li>
             <li>Chấp nhận thanh toán hầu hết các thẻ ứng dụng</li>
-        </ul>
+          </ul>
+        </div>
       </div>
-      <div class = "about-img">
+      <div class="col-4">
         <img src="assets/about2.png" alt="Khách sạn Kim Bảo">
       </div>
     </div>
-  </div>
-
- <!-- Footer -->
- <footer class = "site-footer">
-  <div class = "footer-logo">
-    <img src="assets/logo.png" alt="Logo Kim Bảo">
-  </div>
-  <div class = "footer-container">
-   
-    <div class = "footer-section">
-      <h4>Điều khoản</h4>
-      <ul>
-        <li><a routerLink="/quy-dinh-chung(gan sau)">Quy định chung</a></li>
-        <li><a routerlink="/quy-dinh-ve-thanh-toan">Quy định về thanh toán</a></li>
-        <li><a routerlink="/quy-dinh-ve-xac-nhan-thong-tin-phong-dat">Quy định về xác nhận thông tin phòng đặt</a></li>
-        <li><a routerLink="/chinh-sach-quyen-rieng-tu">Chính sách quyền riêng tư</a></li>
-      </ul>
-      <h4>Về Kim Bảo</h4>
-      <ul>
-        <li><a routerLink="/about">Về chúng tôi</a></li>
-        <li><a routerLink="/contact">Liên hệ</a></li>
-        <li><a routerLink="/tuyendung">Tuyển dụng</a></li>
-        <li><a routerLink="/ask">Câu hỏi thường gặp</a></li>
-      </ul>
-    </div>
-
-    <div class = "footer-section address">
-      <h4 style ="font-weight: normal;">Số 16 Đường Vương Chiêu, thành phố Hải Dương, Việt Nam</h4>
-      <p>+84 220 3867 389 (24/7)</p>
-      <p>info@kimbaohtel.com.vn</p>
-    </div>
-    <div class = "footer-section">
-      <h4>Social Network</h4>
-      <a href="https://www.facebook.com/nguyenthao02122001" target="_blank" style="padding-right: 10px;">
-        <img src="assets/footer1.png" alt="facebook">
-      </a>
-      <a href="https://www.instagram.com/sun.shine_021" target="_blank" style ="padding-right: 10px;">
-        <img src="assets/footer2.png" alt="instagram">
-      </a>
-    <a href="https://www.youtube.com/watch?v=RMmCz8oGws8" target = "_blank">
-      <img src="assets/footer3.png" alt="youtube">
-    </a>
-    <h4>Tin tức & Sự kiện</h4>
-    <ul>
-      <li><a href="/link-tin-cong-ty">Tin công ty</a></li>
-      <li><a href="/cam-nang-du-lich">Cẩm nang du lịch</a></li>
-    </ul>
-    </div>
 
   </div>
-</footer>
+
+  <!-- Footer -->
+  <app-footer></app-footer>
 </body>
+
 </html>
