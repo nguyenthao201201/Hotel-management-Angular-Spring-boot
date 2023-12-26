@@ -10,7 +10,8 @@ import { OrderComponent } from './order/order.component';
 import { OrderConfirmComponent } from './order-confirm/order-confirm.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-// import { HomeComponent } from './home/home.component';
+import { RegistersComponent } from './registers/registers.component';
+//import { HomeComponent } from './home/home.component';
 
 // Kết hợp cả hai tuyến đường vào một mảng duy nhất
 const routes: Routes = [
@@ -23,8 +24,9 @@ const routes: Routes = [
   { path: 'contact', component:ContactComponent},
   { path: 'booking', component:OrderComponent},
   { path: 'confirm', component:OrderConfirmComponent},
+  { path: 'register', component:RegisterComponent},
   { path: 'login', component:LoginComponent},
-  { path: 'register', component:RegisterComponent}
+  { path: 'registers', component:RegistersComponent}
 ];
 
 @NgModule({

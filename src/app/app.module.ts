@@ -17,6 +17,9 @@ import { OrderComponent } from './order/order.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { OrderConfirmComponent } from './order-confirm/order-confirm.component';
+import { FormsModule } from '@angular/forms';
+import { RegistersComponent } from './registers/registers.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,12 +36,15 @@ import { OrderConfirmComponent } from './order-confirm/order-confirm.component';
     OrderComponent,
     LoginComponent,
     RegisterComponent,
-    OrderConfirmComponent
+    OrderConfirmComponent,
+    RegistersComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
