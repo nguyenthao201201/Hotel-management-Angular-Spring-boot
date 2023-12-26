@@ -8,6 +8,7 @@
                     <div class="form-group">
                         <label for="phone">Phone number(*)</label>
                         <input type="text" class="form-control" 
+                        name="phone"
                         [(ngModel)]="phone" required
                         (input)="onPhoneChange()"
                         name="phone"
@@ -22,6 +23,7 @@
                     <div class="form-group">
                         <label for="full-name">Họ và tên (*)</label>
                         <input type="text" class="form-control" 
+                        name="fullName"
                         [(ngModel)]="fullName"
                         id="full-name">
                         <div class="divider-nospace"></div>

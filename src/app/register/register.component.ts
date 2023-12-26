@@ -22,11 +22,11 @@ isAccepted: boolean;
 
 constructor( private http: HttpClient, private router: Router
   ) {
-this.phone = '';
-this.password = '';
-this.retypePassword = ''; 
-this.fullName = '';
-this.address = '';
+this.phone = '88888888';
+this.password = '123';
+this.retypePassword = '123'; 
+this.fullName = 'Nguyễn Thảo';
+this.address = '123';
 this.dateOfBirth = new Date();
 this.dateOfBirth.setFullYear(this.dateOfBirth.getFullYear() - 18);
 this.isAccepted = false;
@@ -76,15 +76,17 @@ register() {
             debugger
           },
           error: (error: any) => {
-            debugger
-            console.error('Đăng ký thất bại', error);
+            alert(`Cannot register. An error occured: ${error.error}`);
+            // debugger
+            // console.error('Đăng ký thất bại', error);
+            // console.error('Error details:', error.error);
           }
         });
 }
 //Check hai password có giống nhau hay không
 checkPasswordsMatch() {
   if (this.password !== this.retypePassword) {
-    this.registerForm.form.controls['retypePassword'].setErrors({ 'passwordMismatch': true });
+    this.registerForm.form.controls['retypePassword'].setErrors({'passwordMismatch': true });
    
   } else {
     this.registerForm.form.controls['retypePassword'].setErrors(null);
@@ -101,7 +103,7 @@ checkAge() {
       age--;
     }
     if (age < 18) {
-      this.registerForm.form.controls['dateOfBirth'].setErrors({ 'invalidAge': true });
+      this.registerForm.form.controls['dateOfBirth'].setErrors({'invalidAge': true });
     } else {
       this.registerForm.form.controls['dateOfBirth'].setErrors(null);
     }
