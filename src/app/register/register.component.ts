@@ -1,8 +1,10 @@
 import { NgFor } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { FormGroup, NgForm } from '@angular/forms';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+// import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { UserService } from '../file-service/user.service';
+import { RegisterDTO } from '../dtos/user/register.dto';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +14,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent {
   @ViewChild('registerForm') registerForm!: NgForm;
 //Khai báo các biến tương ứng với các trường trong form đăng ký
-phone: string;
+phoneNumber: string;
 password: string;
 retypePassword: string;
 fullName: string;
@@ -20,13 +22,12 @@ address: string;
 dateOfBirth: Date;
 isAccepted: boolean;
 
-constructor( private http: HttpClient, private router: Router
-  ) {
-this.phone = '88888888';
-this.password = '123';
-this.retypePassword = '123'; 
-this.fullName = 'Nguyễn Thảo';
-this.address = '123';
+constructor(  private router: Router, private userService: UserService) {
+this.phoneNumber = '';
+this.password = '';
+this.retypePassword = ''; 
+this.fullName = '';
+this.address = '';
 this.dateOfBirth = new Date();
 this.dateOfBirth.setFullYear(this.dateOfBirth.getFullYear() - 18);
 this.isAccepted = false;
@@ -34,11 +35,11 @@ this.isAccepted = false;
 }
 
 onPhoneChange() {
-  console.log(`Phone typed: ${this.phone}`);
+  console.log(`Phone typed: ${this.phoneNumber}`);
 }
 
 register() {
-  const message = `Phone: ${this.phone}` +
+  const message = `Phone: ${this.phoneNumber}` +
    `Password: ${this.password}`+ 
    `RetypePassword: ${this.retypePassword}`+
    `FullName: ${this.fullName}`+
@@ -47,41 +48,39 @@ register() {
    `IsAccepted: ${this.isAccepted}`;
  // alert(message);
  debugger 
- const apiUrl = "http://localhost:8080/api/v1/users/register";
- const registerData = {
+// 
+ const registerDTO:RegisterDTO = {
             "full_name": this.fullName,
-            "phone_number": this.phone,
+            "phone_number": this.phoneNumber,
             "address": this.address,
             "password": this.password,
             "retype_password": this.retypePassword,
             "date_of_birth": this.dateOfBirth,
             "role_id": 2
  }
- const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
- 
- this.http.post(apiUrl, registerData, {headers})
-          .subscribe({
-            next: (response: any) => {
-              debugger
-              if (response && (response.status === 200 || response.status === 201)) {
-                //Đăng ký thành công
-                this.router.navigate(['/login']);
-               // alert("Đăng ký thành công");
-              } else {
-                //Đăng ký thất bại
-                alert(response.message);
-              }
-          }, 
-          complete: () => {
-            debugger
-          },
-          error: (error: any) => {
-            alert(`Cannot register. An error occured: ${error.error}`);
-            // debugger
-            // console.error('Đăng ký thất bại', error);
-            // console.error('Error details:', error.error);
-          }
-        });
+ this.userService.register(registerDTO).subscribe({
+  next: (response: any) => {
+    //debugger
+    if (response && (response.status === 200 || response.status === 201)) {
+      //Đăng ký thành công
+      alert("Đăng ký thành công");
+      this.router.navigate(['/login']);
+     
+    } else {
+      //Đăng ký thất bại
+      alert(response.message);
+    }
+}, 
+complete: () => {
+  //debugger
+},
+
+error: (error: any) => {
+  alert(`Cannot register. An error occured: ${error.error}`);
+}
+})
+//  this.http.post(apiUrl, registerData, {headers})
+//           .subscribe();
 }
 //Check hai password có giống nhau hay không
 checkPasswordsMatch() {

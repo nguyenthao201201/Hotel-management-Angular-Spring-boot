@@ -72,12 +72,12 @@
 .access-right {
     margin-top: 20px;
     width: 200px;
-    color: white;
-    border: 1px solid rgb(225, 64, 180);
+    color: black;
+    border: 1px solid rgb(239, 221, 16);
 }
 
 .access-right:focus {
-    border: 1px solid rgb(225, 64, 180);
+    border: 1px solid rgb(239, 221, 16);
 }
 
 .form-control::placeholder {
