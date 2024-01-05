@@ -6,4 +6,5 @@ export interface Booking {
     email: string;
     address: string;
     note: string;
+    status: string;
 }

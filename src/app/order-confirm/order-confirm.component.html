@@ -6,10 +6,12 @@
             <table>
                 <thead>
                     <tr>
-                        <th scope="col" class="text-start">Phòng và dịch vụ</th>
-                        <th scope="col">Số lượng</th>
-                        <th scope="col">Đơn giá</th>
-                        <th scope="col">Tổng giá</th>
+                        <th scope="col" class="text-start">Loại phòng</th>
+                        <th scope="col">Số phòng</th>
+                        <th scope="col">Số người</th>
+                        <th scope="col">Số ngày cư trú</th>
+                        <th scope="col">Đơn giá phòng</th>
+                        <th scope="col">Tổng tiền</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -17,28 +19,30 @@
                         <td>
                             <div class="product-info">
                                 <!-- <img src="assets/roomsuite.png" alt="Product Image" class="product-image"> -->
-                                <span class="product-name">Tên phòng</span>
+                                <span class="product-name">{{ bookingDetails.room_type}}</span>
                             </div>
                         </td>
-                        <td>2</td>
-                        <td>100,000 đ</td>
-                        <td>200,000 đ</td>
+                        <td>{{bookingDetails.room_number}}</td>
+                        <td>{{bookingDetails.number_of_guests}}</td>
+                        <td>{{bookingDetails.number_of_days}}</td>
+                        <td>{{bookingDetails.price_room | currency:'VND':'symbol':'1.0-0'}}</td>
+                        <td>{{bookingDetails.total_price_room | currency:'VND':'symbol':'1.0-0'}}</td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td>
                             <div class="product-info">
-                                <!-- <img src="assets/roomsuite.png" alt="Product Image" class="product-image"> -->
                                 <span class="product-name">Tên sản phẩm</span>
                             </div>
                         </td>
                         <td>1</td>
                         <td>150,000 đ</td>
                         <td>150,000 đ</td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
             <div class="text-start mt-3">
-                <h4 class="header-text text-end ">Tổng giá: 350,000 đ</h4>
+                <!-- Gán tạm giá trị tổng tiền là tổng tiền phòng, sau thêm dịch vụ xử lý sau -->
+                <h4 class="header-text text-end ">Tổng tiền: {{bookingDetails.total_price_room | currency:'VND':'symbol':'1.0-0'}}</h4>
             </div>
             <!-- <div class="mt-3">
                 <h4 class="product-header">Nhập mã giảm giá</h4>
@@ -53,36 +57,40 @@
             </div> -->
         </div>
         
-        
         <div class="col-md-6">
             <h2 class="product-header">Phương thức thanh toán</h2>
             <div class="payment-method-border">
-                <input type="checkbox" class="form-check-input">
+                <input type="checkbox" class="form-check-input" [(ngModel)]="atmPaymentMethod" (change)="onPaymentMethodChange('Thẻ/tài khoản ngân hàng (ATM nội địa/quốc tế)', 'ATM')">
                 <label for="payment-method">Thẻ/tài khoản ngân hàng (ATM nội địa/quốc tế)</label>
             </div>
             <div class="payment-method-border">
-                <input type="checkbox" class="form-check-input">
+                <input type="checkbox" class="form-check-input" [(ngModel)]="qrPaymentMethod" (change)="onPaymentMethodChange('Thanh toán bằng mã QR','QR')">
                 <label for="payment-method">Thanh toán bằng mã QR</label>
             </div>
             <div class="payment-method-border">
-                <input type="checkbox" class="form-check-input">
+                <input type="checkbox" class="form-check-input" [(ngModel)]="onArrivalPaymentMethod" (change)="onPaymentMethodChange('Thanh toán khi nhận phòng', 'OnArrival')">
                 <label for="payment-method">Thanh toán khi nhận phòng</label>
             </div>
             <div class="payment-method-border">
-                <input type="checkbox" class="form-check-input">
+                <input type="checkbox" class="form-check-input" [(ngModel)]="eWalletPaymentMethod" (change)="onPaymentMethodChange('Thanh toán bằng ví điện tử', 'EWallet')">
                 <label for="payment-method">Thanh toán bằng ví điện tử</label>
             </div>
             <div class="payment-method-border">
-                <input type="checkbox" class="form-check-input">
+                <input type="checkbox" class="form-check-input" [(ngModel)]="creditCardPaymentMethod" (change)="onPaymentMethodChange('Thẻ tín dụng/ghi nợ quốc tế (Visa/JCB/Master)','CreditCard')">
                 <label for="payment-method">Thẻ tín dụng/ghi nợ quốc tế (Visa/JCB/Master)</label>
             </div>
         </div>
-        
     </div>
 
     <div class="text-center mt-3">
-        <button class="btn btn-gradient" type="button">
-            <a href="#" style="text-decoration: none; color: white;">Thanh toán</a></button>
+        <button class="btn btn-gradient" 
+        (click)="pay()"
+        type="button">
+        <a [attr.href]="'https://img.vietqr.io/image/BIDV-8830775906-compact2.png?amount=' + bookingDetails.total_price_room + '&addInfo=Thanh toan don hang&accountName=NGUYEN THI THU THAO'">Thanh toán</a>
+
+            <!-- <a href="https://img.vietqr.io/image/BIDV-8830775906-compact2.png?amount=<AMOUNT>&addInfo=<DESCRIPTION>&accountName=NGUYEN THI THU THAO">Thanh toán</a> -->
+            <!-- Thanh toán -->
+        </button>
     </div>
 </div>
 <app-footer></app-footer>
