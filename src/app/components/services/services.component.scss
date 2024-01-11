@@ -1,0 +1,44 @@
+.service-container {
+    display: flex;
+    justify-content: space-between; 
+    margin: 20px; 
+  }
+  
+  .service-section {
+    flex-basis: calc(50% - 20px); 
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    margin: 10px; 
+    text-align: center; 
+    position: relative; 
+  }
+  
+  .service-image {
+    width: 100%; 
+    height: auto; 
+  }
+  
+  .service-title {
+    margin-top: 10px; 
+    font-size: 1.2em; 
+  }
+  
+  .service-des {
+    font-size: 0.9em; 
+    margin: 10px 20px; 
+  }
+  .service-more{
+    color:black;
+    font-family: Overlock;
+  }
+  
+  @media (max-width: 768px) {
+    .service-container {
+      flex-direction: column; /* Trên các màn hình nhỏ, đặt .section dưới dạng cột */
+    }
+  
+    .service-section {
+      flex-basis: 100%; /* Trên màn hình nhỏ, .section sẽ chiếm 100% chiều rộng */
+    }
+  }
+  
