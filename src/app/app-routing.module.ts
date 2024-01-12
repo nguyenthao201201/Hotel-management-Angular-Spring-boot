@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GioithieuComponent } from './gioithieu/gioithieu.component';
-import { HomeComponent } from './home/home.component';
-import { RoomsComponent } from './rooms/rooms.component';
-import { ServicesComponent } from './services/services.component';
-import { ContactComponent } from './contact/contact.component';
-import { NewsComponent } from './news/news.component';
-import { OrderComponent } from './order/order.component';
-import { OrderConfirmComponent } from './order-confirm/order-confirm.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { RegistersComponent } from './registers/registers.component';
+import { GioithieuComponent } from './components/gioithieu/gioithieu.component';
+import { HomeComponent } from './components/home/home.component';
+import { RoomsComponent } from './components/rooms/rooms.component';
+import { ServicesComponent } from './components/services/services.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { NewsComponent } from './components/news/news.component';
+import { OrderComponent } from './components/order/order.component';
+import { OrderConfirmComponent } from './components/order-confirm/order-confirm.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { RegistersComponent } from './components/registers/registers.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 //import { HomeComponent } from './home/home.component';
 
 // Kết hợp cả hai tuyến đường vào một mảng duy nhất
@@ -26,7 +27,10 @@ const routes: Routes = [
   { path: 'confirm', component:OrderConfirmComponent},
   { path: 'register', component:RegisterComponent},
   { path: 'login', component:LoginComponent},
-  { path: 'registers', component:RegistersComponent}
+  { path: 'registers', component:RegistersComponent},
+  { path: 'user-profile', component:UserProfileComponent},
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({

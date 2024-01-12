@@ -39,6 +39,7 @@
 .navbar {
   margin: 0px;
   display: flex;
+  font: 16px Open Sans;
   justify-content: center;
   align-items: center;
 }
@@ -47,6 +48,10 @@
   margin: 0 40px;
   text-decoration: none;
   color: #000;
+}
+
+.nav-item.active {
+  background-color: rgb(245, 243, 206) !important;
 }
 
 .welcome-text {
@@ -97,3 +102,23 @@
   margin-right: auto;
 }
 
+
+//Css cho phần popover
+.popover-list {
+  padding: 10px;
+}
+.popover-body {
+  padding: 0px;
+}
+.popover-item {
+  display: block;
+  margin-bottom: 5px;
+  text-decoration: none;
+  color: #333;
+}
+
+.popover-item:hover {
+  background-color: #f0f0f0;
+  color: red;
+  /* Change text color to red on hover */
+}

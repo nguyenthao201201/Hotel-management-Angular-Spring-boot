@@ -8,7 +8,7 @@ import { environment } from '../environments/environment';
   providedIn: 'root'
 })
 export class BookingDetailService {
-
+// 
   private apiUrl = `${environment.apiBaseUrl}/booking-details`; 
   private apiConfig = {
     headers: this.createHeader()  

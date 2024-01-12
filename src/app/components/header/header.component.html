@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-<body>
+<body> -->
   <!-- Header -->
 <div class="header">
   <div class="top-bar">
@@ -19,17 +19,46 @@
     <div class="phone_number">
       <div class="login"> <!--khai bao thêm phần login -->
         <ng-container *ngIf="userResponse">
+          <ng-container
+            ngbPopover="Tài khoản của tôi,Đơn mua,Đăng xuất"
+            popoverTitle="User Actions"
+            triggers="click"
+            [placement]="'bottom'"
+          >
+            <a
+              class="nav-link"
+              routerLink="/profile"
+              [ngbPopover]="popoverContent"
+              (click)="togglePopover($event)"
+            >
+              {{ userResponse.full_name }}
+            </a>
+            <ng-template #popoverContent>
+              <div class="popover-list">
+                <a href="#" class="popover-item" 
+                    (click)="handleItemClick(0)">Tài khoản của tôi</a>
+                <a href="#" class="popover-item" 
+                    (click)="handleItemClick(1)">Đơn mua</a>
+                <a href="#" class="popover-item" 
+                    (click)="handleItemClick(2)">Đăng xuất</a>
+              </div>
+            </ng-template>
+          </ng-container>
+        </ng-container>
+        <ng-container *ngIf="!userResponse">
+          <a class="nav-link" routerLink="/login">Đăng nhập</a>
+        </ng-container>
+        <!-- <ng-container *ngIf="userResponse">
           <a href="/profile" class="login">
             Xin chào {{userResponse.full_name}} > |
           </a>
         </ng-container>
-        <ng-container *ngIf="!userResponse">
+        <ng-container *ngIf="!userResponse"> 
           <a href="/login" class="login">
             Đăng nhập > |
           </a>
-        </ng-container>
+        </ng-container> -->
       </div>
-<!--  -->
       <a href="/booking" class="book">Book Your Stay</a>
       <svg xmlns="http://www.w3.org/2000/svg" width="19" height="8" viewBox="0 0 19 8" fill="none">
         <path
@@ -40,13 +69,31 @@
   </div>
   <hr class="divider" />
   <nav class="navbar">
-    <a href="/home" class="nav-item">HOME</a>
-    <a href="/about" class="nav-item">GIỚI THIỆU</a>
-    <a href="/rooms" class="nav-item">PHÒNG</a>
-    <a href="/services" class="nav-item">DỊCH VỤ & TIỆN ÍCH</a>
-    <a href="/news" class="nav-item">TIN TỨC</a>
-    <a href="/contact" class="nav-item">LIÊN HỆ</a>
+    <a class="nav-item"
+    [ngClass]="{ 'active': activeNavItem === 0 }"
+    (click)="setActiveNavItem(0)" 
+    routerLink="/home" >HOME</a>
+    <a class="nav-item"
+    [ngClass]="{ 'active': activeNavItem === 1 }"
+    (click)="setActiveNavItem(1)" 
+    routerLink="/about" >GIỚI THIỆU</a>
+    <a routerLink="/rooms" class="nav-item"
+    [ngClass]="{ 'active': activeNavItem === 2 }"
+    (click)="setActiveNavItem(2)" 
+    >PHÒNG</a>
+    <a routerLink="/services" class="nav-item"
+    [ngClass]="{ 'active': activeNavItem === 3 }"
+    (click)="setActiveNavItem(3)" 
+    >DỊCH VỤ & TIỆN ÍCH</a>
+    <a routerLink="/news" class="nav-item"
+    [ngClass]="{ 'active': activeNavItem === 4 }"
+    (click)="setActiveNavItem(4)" 
+    >TIN TỨC</a>
+    <a routerLink="/contact" class="nav-item"
+    [ngClass]="{ 'active': activeNavItem === 5}"
+    (click)="setActiveNavItem(5)" 
+    >LIÊN HỆ</a>
   </nav>
 </div>
-</body>
-</html>
+<!-- </body>
+</html> -->

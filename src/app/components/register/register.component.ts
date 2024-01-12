@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import { UserService } from '../../file-service/user.service';
 import { RegisterDTO } from '../../dtos/user/register.dto';
 
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -57,13 +56,20 @@ register() {
             "password": this.password,
             "retype_password": this.retypePassword,
             "date_of_birth": this.dateOfBirth,
-            "role_id": 1
+            "role_id": 2
  }
  this.userService.register(registerDTO).subscribe({
   next: (response: any) => {
-    console.log("Đăng ký thành công",response);
-    alert("Đăng ký thành công");
-    this.router.navigate(['/login']);
+    //debugger
+    if (response && (response.status === 200 || response.status === 201)) {
+      //Đăng ký thành công
+      alert("Đăng ký thành công");
+      this.router.navigate(['/login']);
+     
+    } else {
+      //Đăng ký thất bại
+      alert(response.message);
+    }
 }, 
 complete: () => {
   //debugger
