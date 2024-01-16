@@ -54,11 +54,11 @@ export class OrderComponent implements OnInit {
     this.check_in = new Date();
     this.check_out = new Date();
     this.room_type = '';
-    this.fullName = 'Thu Thảo';
-    this.phone_number = '12345667';
-    this.email = 'nguyenthao201201@gmail.com';
-    this.address = 'Tân Hương, Ninh Giang, Hải Dương';
-    this.note = 'oke';
+    this.fullName = '';
+    this.phone_number = '';
+    this.email = '';
+    this.address = '';
+    this.note = '';
 
     this.formattedCheckIn = '';
     this.formattedCheckOut = '';

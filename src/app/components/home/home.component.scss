@@ -21,23 +21,55 @@ h2 {
   line-height: normal;
 }
 
+h3{
+  align-items: center;
+  text-align: center;
+  color: #000;
+  font-family: Passions Conflict;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+}
+
+.title{
+  font-family: Passions Conflict;
+}
+.description {
+  text-align: justify;
+  font-size: 18px;
+  font-style: normal;
+}
+.container{
+  margin:20px;
+  
+}
+
 .hotel-wellcome {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
-
+.book-btn {
+  text-decoration: none;
+  background-color: orange;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 20px;
+}
 .col-md-6 {
   text-align: center;
 }
 .col-md-4 {
   text-align: center;
 }
-// .col-4{
-//   text-align: center;
-//   display: flex;
-// }
+
 .hotel-discover {
   text-align: center;
 }

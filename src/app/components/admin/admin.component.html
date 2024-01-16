@@ -1,0 +1,67 @@
+<div class="container-fluid">
+    <header class="header bg-success text-white d-flex justify-content-between">
+        <h1 class="header-title">TRANG QUẢN LÝ THUÊ PHÒNG KHÁCH SẠN KIM BẢO</h1>
+        <!-- Logout Button -->
+        <button class="btn btn-danger btn-sm" (click)="logout()">Đăng xuất</button>
+    </header>
+    <div class="row">
+        <nav id="sidebar" class="col-md-2 col-lg-2 d-md-block bg-light sidebar">
+            <div class="position-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link"
+                            (click)="showAdminComponent('orders')">
+                            <i class="bi bi-clipboard"></i>
+                             Bookings 
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" 
+                        (click)="showAdminComponent('rooms')">
+                            <i class="bi bi-door-open"></i>
+                        Rooms
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-music-player"></i>
+                            Services
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-person"></i>
+                            Users
+                        </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-people"></i>
+                            Customers
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-person-badge"></i>
+                            Employees
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-bar-chart"></i>
+                            Reports
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="col-md-10 col-lg-10 overflow-auto">
+            <ng-container [ngSwitch]="adminComponent">
+                <app-order-admin *ngSwitchCase="'orders'"></app-order-admin>
+                <app-room-admin *ngSwitchCase="'rooms'"></app-room-admin>
+              <!-- <app-order.admin *ngSwitchCase="'orders'"></app-order.admin> -->
+              <!-- <app-product-admin *ngSwitchCase="'products'"></app-product-admin>
+              <app-category-admin *ngSwitchCase="'categories'"></app-category-admin>           -->
+            </ng-container>
+          </div>
+    </div>
+</div>

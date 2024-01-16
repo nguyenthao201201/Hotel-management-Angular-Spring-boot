@@ -8,7 +8,7 @@ import {
   AbstractControl
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserResponse } from '../../responses/user.response';
+import { UserResponse } from '../../responses/users/user.response';
 import { UpdateUserDTO } from '../../dtos/user/update.user.dto';
 import { UserService } from '../../file-service/user.service';
 import { TokenService } from '../../file-service/token.service';
@@ -41,8 +41,8 @@ export class UserProfileComponent implements  OnInit{
   }
   
   ngOnInit(): void {  
-    debugger
-    this.token = this.tokenService.getToken() ?? '';
+   // debugger
+    this.token = this.tokenService.getToken();
     this.userService.getUserDetail(this.token).subscribe({
       next: (response: any) => {
         debugger

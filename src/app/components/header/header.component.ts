@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserResponse } from '../../responses/user.response';
+import { UserResponse } from '../../responses/users/user.response';
 import { UserService } from '../../file-service/user.service';
 import { TokenService } from '../../file-service/token.service';
 import { Router } from '@angular/router';
@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit{
     //alert(`Clicked on "${index}"`);
     //alert(`Clicked on "${index}"`);
     if(index === 0) {
-      debugger
+      //debugger
       this.router.navigate(['/user-profile']);                      
     } else if (index === 2) {
       this.userService.removeUserFromLocalStorage();

@@ -18,7 +18,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { OrderConfirmComponent } from './components/order-confirm/order-confirm.component';
 import { FormsModule } from '@angular/forms';
-import { RegistersComponent } from './components/registers/registers.component';
+//import { RegistersComponent } from './components/registers/registers.component';
 import { 
           HttpClientModule,
           HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -28,6 +28,9 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { OrderAdminComponent } from './components/admin/order.admin/order.admin.component';
+import { RoomAdminComponent } from './components/admin/room.admin/room.admin.component';
 //import { PopoverComponent } from './popover/popover.component';
 
 @NgModule({
@@ -46,8 +49,11 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     LoginComponent,
     RegisterComponent,
     OrderConfirmComponent,
-    RegistersComponent,
-    UserProfileComponent
+    //RegistersComponent,
+    UserProfileComponent,
+    AdminComponent,
+    OrderAdminComponent,
+    RoomAdminComponent
   ],
   imports: [
     ReactiveFormsModule,

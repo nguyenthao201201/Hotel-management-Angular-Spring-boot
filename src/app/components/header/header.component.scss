@@ -48,11 +48,16 @@
   margin: 0 40px;
   text-decoration: none;
   color: #000;
+  transition: color 0.3s; /* Thêm hiệu ứng màu chuyển đổi */
 }
 
-.nav-item.active {
-  background-color: rgb(245, 243, 206) !important;
+.nav-item:hover {
+  background-color: #f0f0f0;
 }
+
+// .nav-item.active {
+//   background-color: rgb(245, 243, 206) !important;
+// }
 
 .welcome-text {
   text-align: center;
@@ -101,7 +106,6 @@
   margin-left: auto;
   margin-right: auto;
 }
-
 
 //Css cho phần popover
 .popover-list {

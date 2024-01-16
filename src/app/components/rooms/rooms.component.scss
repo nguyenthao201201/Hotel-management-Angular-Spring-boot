@@ -1,6 +1,8 @@
 
 .container{
   padding-bottom: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
 }
 .middle-img {
     display: flex;
@@ -34,6 +36,12 @@
     margin-right: 10px; 
   }
   
+  .room-title {
+    font-size: 1.5em; 
+    margin-bottom: 10px; 
+    font-family: Passions Conflict;
+    font-style: bold;
+  }
   .room-service {
     margin-left: 10px; 
   }

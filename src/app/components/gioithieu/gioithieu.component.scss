@@ -1,4 +1,17 @@
 
+h1{
+  font-family: Passions Conflict;
+  font-size: 40px;
+  font-style: italic;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: underline;
+  margin: 20px;
+}
+h4{
+font-size: 20px;
+font-weight: 500;
+}
   .middle-bar {
     width: 100%;
     text-align: center;
@@ -28,39 +41,5 @@
   // Content
   .container {
 margin-bottom: 20px;
-}
-
-  // footer
-.site-footer {
-  background-color: #EFE1CE;
-}
-
-.footer-logo {
-  text-align: center;
-  padding-bottom: 20px;
-}
-
-.footer-container {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.footer-section ul,
-.footer-section p {
-  list-style-type: none;
-}
-
-.footer-section.address {
-  text-align: center;
-}
-
-.footer-section a {
-  color: #333;
-  text-decoration: none;
-  display: inline;
-  margin-bottom: 5px;
-}
-
-.footer-section a:hover {
-  text-decoration: underline;
+font-size: 16px;
 }

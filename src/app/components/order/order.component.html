@@ -20,8 +20,7 @@
                     <label for="room" class="form-label">Số người</label>
                     <select class="form-select" 
                     [(ngModel)]="number_of_guests" name="number_of_guests"
-                    aria-label="Default select example"
-                    >
+                    aria-label="Default select example">
                         <option selected disabled>Chọn số lượng</option>
                         <option *ngFor="let i of guestQuantityOptions" [value]="i">{{ i }}</option>
                     </select>                    
@@ -108,9 +107,9 @@
                  Xác nhận </a></button> -->
                  Xác nhận </button>
     </div>
-    <button class="btn btn-gradient" type="button" (click)="generatePDF()">
+    <!-- <button class="btn btn-gradient" type="button" (click)="generatePDF()">
         In ra PDF
-      </button>
+      </button> -->
       
 </div>
 <app-footer></app-footer>

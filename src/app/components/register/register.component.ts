@@ -12,7 +12,7 @@ import { RegisterDTO } from '../../dtos/user/register.dto';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-  @ViewChild('registerForm') registerForm!: NgForm;
+  @ViewChild('ngForm') registerForm!: NgForm;
 //Khai báo các biến tương ứng với các trường trong form đăng ký
 phoneNumber: string;
 password: string;
@@ -47,7 +47,7 @@ register() {
    `DateOfBirth: ${this.dateOfBirth}`+
    `IsAccepted: ${this.isAccepted}`;
  // alert(message);
- debugger 
+// debugger 
 // 
  const registerDTO:RegisterDTO = {
             "full_name": this.fullName,
@@ -56,20 +56,14 @@ register() {
             "password": this.password,
             "retype_password": this.retypePassword,
             "date_of_birth": this.dateOfBirth,
-            "role_id": 2
+            "role_id": 1
  }
  this.userService.register(registerDTO).subscribe({
   next: (response: any) => {
-    //debugger
-    if (response && (response.status === 200 || response.status === 201)) {
+ //   debugger
       //Đăng ký thành công
       alert("Đăng ký thành công");
       this.router.navigate(['/login']);
-     
-    } else {
-      //Đăng ký thất bại
-      alert(response.message);
-    }
 }, 
 complete: () => {
   //debugger
