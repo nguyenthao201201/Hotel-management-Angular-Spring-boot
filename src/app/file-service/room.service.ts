@@ -1,14 +1,15 @@
 // room.service.ts
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders,HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment';
+import { Room } from '../models/room';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RoomService {
-  private apiGetRooms = `${environment.apiBaseUrl}/rooms/all`; 
+  private apiGetRoomByKeyWord = `${environment.apiBaseUrl}/rooms/getroomsbykeyword`;
   private apiGetRoomById = `${environment.apiBaseUrl}/rooms`;
   private apiGetRoomAvailable = `${environment.apiBaseUrl}/rooms/available`;
   private apiUpdateStatusUrl = `${environment.apiBaseUrl}/rooms/updateStatus`;
@@ -27,6 +28,16 @@ export class RoomService {
 
     return this.http.get<any[]>(this.apiGetRoomAvailable, this.apiConfig);
   }
+  getAllRooms(keyword:string,
+    page: number, limit: number
+  ): Observable<Room[]> {
+      const params = new HttpParams()
+      .set('keyword', keyword)      
+      .set('page', page.toString())
+      .set('limit', limit.toString());            
+      return this.http.get<any>(this.apiGetRoomByKeyWord, { params });
+  }
+
 
   getRoomAvailable(): Observable<any[]> {
     return this.http.get<any[]>(this.apiGetRoomAvailable, this.apiConfig);

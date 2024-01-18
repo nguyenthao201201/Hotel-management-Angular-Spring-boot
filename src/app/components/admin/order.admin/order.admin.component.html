@@ -20,24 +20,28 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let order of bookings">
-            <td>{{ order.id }}</td>
-            <td>{{ order.user_id }}</td>
-            <td>{{ order.full_name }}</td>
-            <td>{{ order.phone_number }}</td>
-            <td>{{ order.address }}</td>
-            <td>{{ order.note }}</td>
-            <td>{{ order.check_in | date }}</td>
-            <td>{{ order.check_out | date }}</td>
-            <td>{{ order.status }}</td>
-            <td>{{ order.total_money }}</td>
-            <td>{{ order.payment_date | date }}</td>
-            <td>{{ order.payment_method }}</td>
+          <tr *ngFor="let booking of bookings">
+            <td>{{ booking.id }}</td>
+            <td>{{ booking.user_id }}</td>
+            <td>{{ booking.full_name }}</td>
+            <td>{{ booking.phone_number }}</td>
+            <td>{{ booking.address }}</td>
+            <td>{{ booking.note }}</td>
+            <td>{{ booking.check_in | date }}</td>
+            <td>{{ booking.check_out | date }}</td>
+            <td>{{ booking.status }}</td>
+            <td>{{ booking.total_money }}</td>
+            <td>{{ booking.payment_date | date }}</td>
+            <td>{{ booking.payment_method }}</td>
             <td>
               <button class="btn btn-danger" 
-                (click)="deleteOrder(order.id)"
+                (click)="deleteOrder(booking.id)"
                 >Delete</button>
             </td>
+            <td>
+              <button class="btn btn-primary" 
+                (click)="editOrder(booking)"
+                >Edit</button>
           </tr>
         </tbody>
       </table>

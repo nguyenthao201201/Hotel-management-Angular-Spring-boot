@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BookingService } from 'src/app/file-service/booking.service';
 import { BookingResponse } from 'src/app/responses/booking.response';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-admin',
@@ -17,7 +18,8 @@ export class OrderAdminComponent {
   visiblePages: number[] = [];
 
   constructor(
-    private bookingService: BookingService
+    private bookingService: BookingService,
+    private router: Router
   ) {
 
   }
@@ -26,7 +28,7 @@ export class OrderAdminComponent {
     this.getAllOrders(this.keyword, this.currentPage, this.itemsPerPage);
   }
   getAllOrders(keyword: string, page: number, limit: number) {
-    debugger
+   debugger
     this.bookingService.getAllOrders(keyword, page, limit).subscribe({
       next: (response: any) => {
         debugger        
@@ -35,16 +37,16 @@ export class OrderAdminComponent {
         this.visiblePages = this.generateVisiblePageArray(this.currentPage, this.totalPages);
       },
       complete: () => {
-        debugger;
+       // debugger;
       },
       error: (error: any) => {
-        debugger;
+      //  debugger;
         console.error('Error fetching products:', error);
       }
     });    
   }
   onPageChange(page: number) {
-    debugger;
+ //   debugger;
     this.currentPage = page;
     this.getAllOrders(this.keyword, this.currentPage, this.itemsPerPage);
   }
@@ -64,7 +66,28 @@ export class OrderAdminComponent {
         .map((_, index) => startPage + index);
   }
   deleteOrder(id:number) {
-    
+    const confirmation = window
+      .confirm('Are you sure you want to delete this order?');
+    if (confirmation) {
+      debugger
+      this.bookingService.deleteOrder(id).subscribe({
+        next: (response: any) => {
+          debugger 
+          location.reload();          
+        },
+        complete: () => {
+          debugger;          
+        },
+        error: (error: any) => {
+          debugger;
+          console.error('Error fetching products:', error);
+        }
+      });    
+    } 
   }
-  
+  editOrder(booking:BookingResponse) {
+    debugger
+    this.router.navigate(['/edit-order-admin', booking.id]);
+  }
+
 }

@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Booking } from '../models/booking';
 import { environment } from '../environments/environment';
+import { BookingAndDetailDTO } from '../dtos/booking.detail.dto';
 import { BookingDTO } from '../dtos/booking.dto';
 import { BookingResponse } from '../responses/booking.response';
 
@@ -11,6 +12,7 @@ import { BookingResponse } from '../responses/booking.response';
   providedIn: 'root'
 })
 export class BookingService {
+ private apiGetUrl = `${environment.apiBaseUrl}/bookings`;
   private apiUrl = `${environment.apiBaseUrl}/bookings/saveBookingAndBookingDetail`;
   private apiUpdateStatusUrl = `${environment.apiBaseUrl}/bookings/updateStatus`;
   private apiUpdatePaymentUrl = `${environment.apiBaseUrl}/bookings/updatePayment`;
@@ -26,14 +28,21 @@ export class BookingService {
       'Content-Type': 'application/json'});
   }
 
-  bookRoom(bookingDTO:BookingDTO): Observable<any> {
+  bookRoom(bookingDTO:BookingAndDetailDTO): Observable<any> {
     return this.http.post(this.apiUrl, bookingDTO, this.apiConfig);
   }
 
+  getBookingById(id: number): Observable<BookingResponse> {
+    return this.http.get<BookingResponse>(`${this.apiGetUrl}/${id}`);
+  }
+
+  updateBooking(bookingId: number, bookingData: BookingDTO): Observable<Object> {//chuyển BookingDTO thành BookingResponse
+    const url = `${environment.apiBaseUrl}/bookings/all/${bookingId}`;
+    return this.http.put(url, bookingData);
+  }
   // updateStatus(booking: Booking): Observable<any> {
   //   return this.http.put(this.apiUpdateStatusUrl, booking, this.apiConfig);
   // }
-
   updateBookingStatus(bookingId: number, newStatus: string): Observable<any> {
     // Gọi API để cập nhật trạng thái của booking
     const options = {
@@ -66,5 +75,8 @@ export class BookingService {
       .set('limit', limit.toString());            
       return this.http.get<any>(this.apiGetAllOrders, { params });
   }
-
+  deleteOrder(orderId: number): Observable<any> {
+    const url = `${environment.apiBaseUrl}/bookings/${orderId}`;
+    return this.http.delete(url, { responseType: 'text' });
+  }
 }

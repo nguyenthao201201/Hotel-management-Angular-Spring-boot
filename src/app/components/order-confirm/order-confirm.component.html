@@ -86,7 +86,7 @@
         <button class="btn btn-gradient" 
         (click)="pay()"
         type="button">
-        <a [attr.href]="'https://img.vietqr.io/image/BIDV-8830775906-compact2.png?amount=' + bookingDetails.total_price_room + '&addInfo=Thanh toan don hang&accountName=NGUYEN THI THU THAO'">Thanh toán</a>
+        <a class="payment" [attr.href]="'https://img.vietqr.io/image/BIDV-8830775906-compact2.png?amount=' + bookingDetails.total_price_room + '&addInfo=Thanh toan don hang&accountName=NGUYEN THI THU THAO'">Thanh toán</a>
 
             <!-- <a href="https://img.vietqr.io/image/BIDV-8830775906-compact2.png?amount=<AMOUNT>&addInfo=<DESCRIPTION>&accountName=NGUYEN THI THU THAO">Thanh toán</a> -->
             <!-- Thanh toán -->

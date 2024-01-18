@@ -1,0 +1,16 @@
+//Write form to edit room
+
+<!-- Path: src/app/components/admin/room.admin/edit.room/edit.room.admin.component.ts -->
+<h3>Id</h3>
+<input type="text" class="form-control" [(ngModel)]="room.room_id" disabled>
+<h3>Room Number</h3>
+<input type="text" class="form-control" [(ngModel)]="room.room_number">
+<h3>Type</h3>
+<input type="text" class="form-control" [(ngModel)]="room.type">
+<h3>Price</h3>
+<input type="text" class="form-control" [(ngModel)]="room.price">
+<h3>Status</h3>
+<input type="text" class="form-control" [(ngModel)]="room.status">
+<h3>Description</h3>
+<input type="text" class="form-control" [(ngModel)]="room.description">
+<button class="btn btn-success" (click)="editRoom()">Edit</button>

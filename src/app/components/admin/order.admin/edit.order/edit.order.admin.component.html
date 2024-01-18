@@ -1,0 +1,103 @@
+
+  <!-- <div class="row"> -->
+    <div class="col-md-6">
+      <h3>Order Information</h3>
+      <!-- <p><strong>Order ID:</strong> {{bookingResponse.id }}</p>
+      <p><strong>User ID:</strong> {{bookingResponse.user_id }}</p>
+      <p><strong>Full Name:</strong> {{bookingResponse.full_name }}</p>
+      <p><strong>Phone Number:</strong> {{bookingResponse.phone_number}}</p>
+      <p><strong>Address:</strong> {{bookingResponse.address}}</p>
+      <p><strong>Note:</strong> {{bookingResponse.note }}</p>
+      <p><strong>Check in:</strong> {{bookingResponse.check_in | date}}</p> -->
+      <form #editorderForm="ngForm" (ngSubmit)="saveOrder()">
+        <label for="orderId"><strong>Order ID:</strong></label>
+        <input type="text" id="orderId" [(ngModel)]="orderId" name="orderId"
+         [value]="bookingResponse.id" disabled>
+      
+        <label for="userId"><strong>User ID:</strong></label>
+        <input type="text" id="userId" [(ngModel)]="user_id" name="userId"
+         [value]="bookingResponse.user_id">
+      
+        <label for="fullName"><strong>Full Name:</strong></label>
+        <input type="text" id="fullName" [(ngModel)]="full_name" name="full_name"
+        [value]="bookingResponse.full_name">
+      
+        <label for="phoneNumber"><strong>Phone Number:</strong></label>
+        <input type="text" id="phoneNumber" 
+        [(ngModel)]="phone_number" name="phone_number"
+         [value]="bookingResponse.phone_number">
+
+        <label for="email"><strong>Email:</strong></label>
+        <input type="text" id="email" 
+         [value]="bookingResponse.email">
+      
+        <label for="address"><strong>Address:</strong></label>
+        <input type="text" id="address" [(ngModel)]="address" name="address"
+        [value]="bookingResponse.address">
+      
+        <label for="note"><strong>Note:</strong></label>
+        <input type="text" id="note" [(ngModel)]="note" name="note"
+        [value]="bookingResponse.note">
+
+        <label for="totalPrice"><strong>Total Price:</strong></label>
+        <input type="text" id="totalPrice" [(ngModel)]="total_money" name="total_money"
+         [value]="bookingResponse.total_money" disabled>
+      
+        <label for="checkIn"><strong>Check in:</strong></label>
+        <input type="text" id="checkIn" [(ngModel)]="check_in" name="check_in"
+        [value]="bookingResponse.check_in">
+        <p><strong>Check out:</strong> <input type="date" [(ngModel)]="check_out" name="check_out"
+          [value]="bookingResponse.check_out | date">
+        </p>
+
+        <label for="paymentMethod"><strong>Payment Method:</strong></label>
+        <input type="text" id="paymentMethod" 
+         [value]="bookingResponse.payment_method" disabled>
+
+        <label for="paymentStatus"><strong>Payment Date:</strong></label>
+        <input type="date" id="paymentDate" [(ngModel)]="payment_date" name="payment_status"
+         [value]="bookingResponse.payment_date" disabled>
+
+        <div class="form-group">
+          <label for="statusSelect"><strong>Status:</strong></label>
+          <select class="form-control" id="statusSelect" 
+            [(ngModel)]="bookingResponse.status" name="status">
+            <option value="paid">Paid</option>
+            <option value="unpaid">Unpaid</option>
+            <option value="complete">Complete</option>
+            <option value="cancel">Cancel</option>
+            <option value="pending">Pending</option>
+          </select>
+        </div>
+        <button type="submit">Save Changes</button>
+      </form>
+      
+             
+  </div>  
+  <h3>Order Details</h3>
+  <!-- <table class="table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+    
+      </tr>
+    </thead>
+    <tbody>
+      @for(order_detail of orderResponse.order_details; 
+        track order_detail.product.name) {
+          <tr>
+            <td>{{ order_detail.product.name }}</td>
+            <td>
+              <p>{{order_detail.product.price}}</p>          
+            <td>
+              <p>{{order_detail.number_of_products}}</p>          
+            </td>
+           
+          </tr>
+      }      
+    </tbody>
+  </table>   -->
+  <!-- <button class="btn btn-primary col-md-2" 
+    (click)="saveOrder()">Save</button> -->

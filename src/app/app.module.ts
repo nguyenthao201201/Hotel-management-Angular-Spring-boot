@@ -31,7 +31,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { AdminComponent } from './components/admin/admin.component';
 import { OrderAdminComponent } from './components/admin/order.admin/order.admin.component';
 import { RoomAdminComponent } from './components/admin/room.admin/room.admin.component';
-//import { PopoverComponent } from './popover/popover.component';
+import { EditOrderAdminComponent } from './components/admin/order.admin/edit.order/edit.order.admin.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +53,8 @@ import { RoomAdminComponent } from './components/admin/room.admin/room.admin.com
     UserProfileComponent,
     AdminComponent,
     OrderAdminComponent,
-    RoomAdminComponent
+    RoomAdminComponent,
+    EditOrderAdminComponent,
   ],
   imports: [
     ReactiveFormsModule,

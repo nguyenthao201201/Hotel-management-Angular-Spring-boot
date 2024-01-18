@@ -30,7 +30,7 @@ export class AdminComponent implements OnInit{
   }
 
   showAdminComponent(componentName: string): void {
-   // debugger
+  // debugger
     this.adminComponent = componentName;
   }
 }

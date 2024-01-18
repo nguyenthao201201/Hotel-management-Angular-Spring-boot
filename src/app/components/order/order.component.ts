@@ -3,7 +3,7 @@ import { RoomService } from '../../file-service/room.service';
 import { Room } from '../../models/room';
 import { format } from 'date-fns';
 import { FormBuilder, NgForm, FormGroup, Validators } from '@angular/forms';
-import { BookingDTO } from '../../dtos/booking.dto';
+import { BookingAndDetailDTO } from '../../dtos/booking.detail.dto';
 import { BookingDetailDTO } from '../../dtos/booking-detail.dto';
 import { BookingService } from '../../file-service/booking.service';
 import { BookingInfoService } from '../../file-service/booking-info.service';
@@ -18,7 +18,7 @@ import { jsPDF } from 'jspdf';
 })
 
 export class OrderComponent implements OnInit {
-  @ViewChild('registerForm') registerForm!: NgForm;
+  @ViewChild('orderForm') orderForm!: NgForm;
   check_in: Date;
   check_out: Date;
   fullName: string;
@@ -106,7 +106,7 @@ export class OrderComponent implements OnInit {
           const randomIndex = Math.floor(Math.random() * filteredRooms.length);
           const selectedRoom = filteredRooms[randomIndex];
           // Lấy room_id của phòng đã chọn
-          const roomId = selectedRoom.roomId;
+          const roomId = selectedRoom.room_id;
           this.room_id = roomId;
           console.log('Found room_id:', roomId);
           // Lấy thông tin phòng theo room_id
@@ -144,7 +144,7 @@ export class OrderComponent implements OnInit {
     this.formattedCheckIn = format(this.check_in, 'yyyy-MM-dd');
     this.formattedCheckOut = format(this.check_out, 'yyyy-MM-dd');
 
-    const bookingDTO: BookingDTO = {
+    const bookingDTO: BookingAndDetailDTO = {
       "room_id": this.room_id,
       "number_of_guests": this.number_of_guests,
       "check_in": this.formattedCheckIn,
