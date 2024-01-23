@@ -1,16 +1,62 @@
-//Write form to edit room
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form #editroomForm="ngForm" (ngSubmit)="saveRoom()">
+                <div class="row">
+                    <h3>THÔNG TIN PHÒNG</h3>
+                    <div class="text-center">
+                        <label for="roomId" class="form-label"><strong>Room ID:</strong></label>
+                        <input type="text" class="form-control" id="roomId" [(ngModel)]="room_id" name="room_id"
+                            [value]="roomResponse.room_id" disabled>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="roomName" class="form-label"><strong>Room Name:</strong></label>
+                        <input type="text" class="form-control" id="roomName" [(ngModel)]="room_number" name="room_number"
+                            [value]="roomResponse.room_number">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="roomType" class="form-label"><strong>Room Type:</strong></label>
+                        <input type="text" class="form-control" id="roomType" [(ngModel)]="type" name="type"
+                            [value]="roomResponse.type">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="roomPrice" class="form-label"><strong>Room Price:</strong></label>
+                        <input type="text" class="form-control" id="roomPrice" [(ngModel)]="price" name="price"
+                            [value]="roomResponse.price">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="roomStatus" class="form-label"><strong>Room Status:</strong></label>
+                              <select class="form-control" id="roomStatus" [(ngModel)]="status" name="status"
+                              [value]="roomResponse.status"
+                              >
+                                <option value="AVAILABLE">AVAILABLE</option>
+                                <option value="BOOKED">BOOKED</option>
+                                <option value="CLEANING">CLEANING</option>
+                                <option value="REPAIRING">REPAIRING</option>
+                            
+                              </select>
+                            </div>
+                          </div>
+                        <!-- <label for="roomStatus" class="form-label"><strong>Room Status:</strong></label>
+                        <input type="text" class="form-control" id="roomStatus" [(ngModel)]="status" name="status"
+                            [value]="roomResponse.status"> -->
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="roomDescription" class="form-label"><strong>Room Description:</strong></label>
+                    <!-- <input type="text" class="form-control" id="roomDescription" [(ngModel)]="description" name="description"
+                        [value]="roomResponse.description"> -->
+                        <textarea class="form-control" id="roomDescription" [(ngModel)]="description" name="description" [value]="roomResponse.description" rows="4"></textarea>
 
-<!-- Path: src/app/components/admin/room.admin/edit.room/edit.room.admin.component.ts -->
-<h3>Id</h3>
-<input type="text" class="form-control" [(ngModel)]="room.room_id" disabled>
-<h3>Room Number</h3>
-<input type="text" class="form-control" [(ngModel)]="room.room_number">
-<h3>Type</h3>
-<input type="text" class="form-control" [(ngModel)]="room.type">
-<h3>Price</h3>
-<input type="text" class="form-control" [(ngModel)]="room.price">
-<h3>Status</h3>
-<input type="text" class="form-control" [(ngModel)]="room.status">
-<h3>Description</h3>
-<input type="text" class="form-control" [(ngModel)]="room.description">
-<button class="btn btn-success" (click)="editRoom()">Edit</button>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+    </div>
+</div>

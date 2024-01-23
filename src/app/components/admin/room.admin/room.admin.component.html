@@ -14,14 +14,15 @@
         </thead>
         <tbody>
           <tr *ngFor="let room of rooms">
-            <td>{{ room.room_id }}</td>
-            <td>{{ room.room_number }}</td>
+            <td>{{ room.roomId }}</td>
+            <td>{{ room.roomNumber }}</td>
             <td>{{ room.type }}</td>
-            <td>{{ room.price }}</td>
+            <td>{{ room.priceRoom }}</td>
             <td>{{ room.status }}</td>
             <td>{{ room.description }}</td>
             <td>
               <button class="btn btn-warning" 
+              (click)="editRoom(room)"
                 >Edit</button>
             </td>
             <td>

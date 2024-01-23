@@ -24,14 +24,14 @@ export class OrderAdminComponent {
 
   }
   ngOnInit(): void {
-    debugger
+    //debugger
     this.getAllOrders(this.keyword, this.currentPage, this.itemsPerPage);
   }
   getAllOrders(keyword: string, page: number, limit: number) {
-   debugger
+   //debugger
     this.bookingService.getAllOrders(keyword, page, limit).subscribe({
       next: (response: any) => {
-        debugger        
+        //debugger        
         this.bookings = response.bookings;
         this.totalPages = response.totalPages;
         this.visiblePages = this.generateVisiblePageArray(this.currentPage, this.totalPages);
@@ -69,25 +69,29 @@ export class OrderAdminComponent {
     const confirmation = window
       .confirm('Are you sure you want to delete this order?');
     if (confirmation) {
-      debugger
+      //debugger
       this.bookingService.deleteOrder(id).subscribe({
         next: (response: any) => {
-          debugger 
+          //debugger 
           location.reload();          
         },
         complete: () => {
-          debugger;          
+         // debugger;          
         },
         error: (error: any) => {
-          debugger;
+          //debugger;
           console.error('Error fetching products:', error);
         }
       });    
     } 
   }
-  editOrder(booking:BookingResponse) {
-    debugger
-    this.router.navigate(['/edit-order-admin', booking.id]);
-  }
+  // editOrder(booking:BookingResponse) {
+  //  // debugger
+  //   this.router.navigate(['/edit-order-admin', booking.id]);
+  // }
+  editOrder(booking: BookingResponse) {
+    this.router.navigate(['/edit-order-admin', booking.id], { skipLocationChange: true });
+}
+
 
 }

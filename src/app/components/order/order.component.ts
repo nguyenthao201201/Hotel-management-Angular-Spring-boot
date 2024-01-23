@@ -99,14 +99,14 @@ export class OrderComponent implements OnInit {
     const selectedRoomType = this.room_type;
     this.roomService.getRoomAvailable().subscribe({
       next: (availableRooms: Room[]) => {
-        //debugger
+       // debugger
         const filteredRooms = availableRooms.filter(availableRoom => availableRoom.type === selectedRoomType);
         if (filteredRooms.length > 0) {
           // Chọn ngẫu nhiên một phòng từ danh sách đã lọc
           const randomIndex = Math.floor(Math.random() * filteredRooms.length);
           const selectedRoom = filteredRooms[randomIndex];
           // Lấy room_id của phòng đã chọn
-          const roomId = selectedRoom.room_id;
+          const roomId = selectedRoom.roomId;
           this.room_id = roomId;
           console.log('Found room_id:', roomId);
           // Lấy thông tin phòng theo room_id
@@ -155,11 +155,12 @@ export class OrderComponent implements OnInit {
       "address": this.address,
       "note": this.note,
     }
-    //debugger
+   // debugger
 
     // Gọi API đăng ký phòng
     this.bookingService.bookRoom(bookingDTO).subscribe(
       (response: any) => {
+        
         // Xử lý phản hồi từ API đặt phòng nếu cần
         console.log('Booking successful:', response);
         //Lưu thông tin đặt phòng để hiển thị sang phần thanh toán: 
@@ -242,3 +243,4 @@ export class OrderComponent implements OnInit {
 //     console.error('Error updating booking status:', error);
 //   }
 // });
+// 

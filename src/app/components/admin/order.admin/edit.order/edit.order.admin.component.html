@@ -1,87 +1,111 @@
-
-  <!-- <div class="row"> -->
+<div class="container">
+  <div class="row justify-content-center">
     <div class="col-md-6">
-      <h3>Order Information</h3>
-      <!-- <p><strong>Order ID:</strong> {{bookingResponse.id }}</p>
-      <p><strong>User ID:</strong> {{bookingResponse.user_id }}</p>
-      <p><strong>Full Name:</strong> {{bookingResponse.full_name }}</p>
-      <p><strong>Phone Number:</strong> {{bookingResponse.phone_number}}</p>
-      <p><strong>Address:</strong> {{bookingResponse.address}}</p>
-      <p><strong>Note:</strong> {{bookingResponse.note }}</p>
-      <p><strong>Check in:</strong> {{bookingResponse.check_in | date}}</p> -->
       <form #editorderForm="ngForm" (ngSubmit)="saveOrder()">
-        <label for="orderId"><strong>Order ID:</strong></label>
-        <input type="text" id="orderId" [(ngModel)]="orderId" name="orderId"
-         [value]="bookingResponse.id" disabled>
-      
-        <label for="userId"><strong>User ID:</strong></label>
-        <input type="text" id="userId" [(ngModel)]="user_id" name="userId"
-         [value]="bookingResponse.user_id">
-      
-        <label for="fullName"><strong>Full Name:</strong></label>
-        <input type="text" id="fullName" [(ngModel)]="full_name" name="full_name"
-        [value]="bookingResponse.full_name">
-      
-        <label for="phoneNumber"><strong>Phone Number:</strong></label>
-        <input type="text" id="phoneNumber" 
-        [(ngModel)]="phone_number" name="phone_number"
-         [value]="bookingResponse.phone_number">
-
-        <label for="email"><strong>Email:</strong></label>
-        <input type="text" id="email" 
-         [value]="bookingResponse.email">
-      
-        <label for="address"><strong>Address:</strong></label>
-        <input type="text" id="address" [(ngModel)]="address" name="address"
-        [value]="bookingResponse.address">
-      
-        <label for="note"><strong>Note:</strong></label>
-        <input type="text" id="note" [(ngModel)]="note" name="note"
-        [value]="bookingResponse.note">
-
-        <label for="totalPrice"><strong>Total Price:</strong></label>
-        <input type="text" id="totalPrice" [(ngModel)]="total_money" name="total_money"
-         [value]="bookingResponse.total_money" disabled>
-      
-        <label for="checkIn"><strong>Check in:</strong></label>
-        <input type="text" id="checkIn" [(ngModel)]="check_in" name="check_in"
-        [value]="bookingResponse.check_in">
-        <p><strong>Check out:</strong> <input type="date" [(ngModel)]="check_out" name="check_out"
-          [value]="bookingResponse.check_out | date">
-        </p>
-
-        <label for="paymentMethod"><strong>Payment Method:</strong></label>
-        <input type="text" id="paymentMethod" 
-         [value]="bookingResponse.payment_method" disabled>
-
-        <label for="paymentStatus"><strong>Payment Date:</strong></label>
-        <input type="date" id="paymentDate" [(ngModel)]="payment_date" name="payment_status"
-         [value]="bookingResponse.payment_date" disabled>
-
-        <div class="form-group">
-          <label for="statusSelect"><strong>Status:</strong></label>
-          <select class="form-control" id="statusSelect" 
-            [(ngModel)]="bookingResponse.status" name="status">
-            <option value="paid">Paid</option>
-            <option value="unpaid">Unpaid</option>
-            <option value="complete">Complete</option>
-            <option value="cancel">Cancel</option>
-            <option value="pending">Pending</option>
-          </select>
+        <div class="row">
+          <h3>THÔNG TIN BOOKING</h3>
+          <div class="text-center">
+            <label for="orderId" class="form-label"><strong>Order ID:</strong></label>
+            <input type="text" class="form-control" id="orderId" [(ngModel)]="orderId" name="orderId"
+              [value]="bookingResponse.id" disabled>
+          </div>
         </div>
-        <button type="submit">Save Changes</button>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="userId" class="form-label"><strong>User ID:</strong></label>
+            <input type="text" class="form-control" id="userId" [(ngModel)]="user_id" name="userId"
+              [value]="bookingResponse.user_id" disabled>
+          </div>
+          <div class="col-md-6">
+            <label for="fullName" class="form-label"><strong>Full Name:</strong></label>
+            <input type="text" class="form-control" id="fullName" [(ngModel)]="full_name" name="full_name"
+              [value]="bookingResponse.full_name">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="phoneNumber" class="form-label"><strong>Phone Number:</strong></label>
+            <input type="text" class="form-control" id="phoneNumber" [(ngModel)]="phone_number" name="phone_number"
+              [value]="bookingResponse.phone_number">
+          </div>
+          <div class="col-md-6">
+            <label for="email" class="form-label"><strong>Email:</strong></label>
+            <input type="text" class="form-control" id="email" 
+            [value]="bookingResponse.email">
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="address" class="form-label"><strong>Address:</strong></label>
+          <input type="text" class="form-control" id="address" [(ngModel)]="address" name="address"
+            [value]="bookingResponse.address">
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="checkIn"><strong>Check in:</strong></label>
+            <input type="text" class="form-control" id="checkIn" [(ngModel)]="check_in" name="check_in"
+              [value]="bookingResponse.check_in">
+          </div>
+          <div class="col-md-6">
+            <label for="checkOut"><strong>Check out:</strong></label>
+            <input type="text" class="form-control" id="checkOut" [(ngModel)]="check_out" name="check_out"
+              [value]="bookingResponse.check_out |date">
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="note" class="form-label"><strong>Note:</strong></label>
+          <input type="text" class="form-control" id="note" [(ngModel)]="note" name="note"
+            [value]="bookingResponse.note">
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="totalPrice" class="form-label"><strong>Total Price:</strong></label>
+            <input type="text" class="form-control" id="totalPrice" [(ngModel)]="total_money" name="total_money"
+              [value]="bookingResponse.total_money">
+          </div>
+          <div class="col-md-6">
+            <label for="paymentMethod" class="form-label"><strong>Payment Method:</strong></label>
+            <input type="text" class="form-control" id="paymentMethod" [value]="bookingResponse.payment_method"
+              disabled>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="paymentStatus" class="form-label"><strong>Payment Date:</strong></label>
+            <input type="date" class="form-control" id="paymentDate" [(ngModel)]="payment_date" name="payment_status"
+              [value]="bookingResponse.payment_date" disabled>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="statusSelect" class="form-label"><strong>Status:</strong></label>
+              <select class="form-control" id="statusSelect" [(ngModel)]="status" name="status"
+              [value]="bookingResponse.status">
+                <option value="paid">Paid</option>
+                <option value="unpaid">Unpaid</option>
+                <option value="complete">Complete</option>
+                <option value="cancel">Cancel</option>
+                <option value="pending">Pending</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-3">
+          <button class="btn btn-gradient" type="button"
+            (click)="saveOrder()"
+          >Save Changes</button>
+        </div>
+        <!-- <h3>Order Details</h3> -->
       </form>
-      
-             
-  </div>  
-  <h3>Order Details</h3>
-  <!-- <table class="table">
+
+    </div>
+  </div>
+</div>
+
+<!-- <table class="table">
     <thead>
       <tr>
-        <th>Product</th>
+        <th>Room</th>
         <th>Price</th>
         <th>Quantity</th>
-    
       </tr>
     </thead>
     <tbody>
@@ -98,6 +122,8 @@
           </tr>
       }      
     </tbody>
-  </table>   -->
-  <!-- <button class="btn btn-primary col-md-2" 
+  </table>   --> 
+<!-- <button class="btn btn-primary col-md-2" 
     (click)="saveOrder()">Save</button> -->
+
+    

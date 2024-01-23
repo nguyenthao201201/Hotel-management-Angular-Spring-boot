@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { RoomService } from 'src/app/file-service/room.service';
 import { Room } from 'src/app/models/room';
-
+import { RoomResponse } from 'src/app/responses/room.response';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-room-admin',
   templateUrl: './room.admin.component.html',
@@ -17,7 +18,8 @@ export class RoomAdminComponent {
   visiblePages: number[] = [];
 
 constructor(
-  private roomService: RoomService
+  private roomService: RoomService,
+  private router: Router
 ) {}
 ngOnInit(): void {
  // debugger
@@ -63,6 +65,9 @@ getAllRooms(keyword: string, page: number, limit: number) {
         .map((_, index) => startPage + index);
   }
 
-
+  editRoom(room:Room) {
+    debugger
+    this.router.navigate(['/edit-room-admin', room.roomId]);
+  }
 
 }

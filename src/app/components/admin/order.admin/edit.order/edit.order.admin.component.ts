@@ -103,21 +103,59 @@ export class EditOrderAdminComponent implements OnInit{
     debugger
     this.formattedCheckIn = format(this.bookingResponse.check_in, 'yyyy-MM-dd');
     this.formattedCheckOut = format(this.check_out, 'yyyy-MM-dd');
-    const bookingDTO: BookingDTO = {
-     // "id": this.bookingResponse.id,
-      "user_id": this.user_id,
-      "full_name": this.bookingResponse.full_name,
-      "phone_number": this.bookingResponse.phone_number,
-      "email": this.bookingResponse.email,
-      "address": this.bookingResponse.address,
-      "note": this.note,
-      "check_in": this.formattedCheckIn,
-      "check_out": this.formattedCheckOut,
-      "total_money": this.total_money,
-      "payment_method": this.bookingResponse.payment_method,
-      "payment_date": this.payment_date,
-      "status": this.bookingResponse.status,
-    }
+      const bookingDTO: any ={
+      }
+
+      bookingDTO.id = this.bookingResponse.id;
+      bookingDTO.user_id = this.bookingResponse.user_id;
+      bookingDTO.full_name = this.bookingResponse.full_name;
+      bookingDTO.phone_number = this.bookingResponse.phone_number;
+      bookingDTO.email = this.bookingResponse.email;
+      bookingDTO.address = this.bookingResponse.address;
+      if (this.note == '') {
+        bookingDTO.note = this.bookingResponse.note;
+      }
+      else{ bookingDTO.note = this.note;}
+
+      bookingDTO.check_in = this.formattedCheckIn;
+      if (!this.check_out) {
+        bookingDTO.check_out = this.bookingResponse.check_out;
+      }
+      else { 
+        bookingDTO.check_out = this.formattedCheckOut;
+      }
+
+      if(this.total_money == 0){
+        bookingDTO.total_money = this.bookingResponse.total_money;
+      }
+      else{
+        bookingDTO.total_money = this.total_money;
+      }
+      bookingDTO.payment_method = this.bookingResponse.payment_method;
+      bookingDTO.payment_date = this.payment_date;
+      if(this.status == ''){
+        bookingDTO.status = this.bookingResponse.status;
+      }
+      else{
+        bookingDTO.status = this.status;
+      }
+
+    
+    // const bookingDTO: BookingDTO = {
+    //  // "id": this.bookingResponse.id,
+    //   "user_id": this.user_id,
+    //   "full_name": this.bookingResponse.full_name,
+    //   "phone_number": this.bookingResponse.phone_number,
+    //   "email": this.bookingResponse.email,
+    //   "address": this.bookingResponse.address,
+    //   "note": this.note,
+    //   "check_in": this.formattedCheckIn,
+    //   "check_out": this.formattedCheckOut,
+    //   "total_money": this.total_money,
+    //   "payment_method": this.bookingResponse.payment_method,
+    //   "payment_date": this.payment_date,
+    //   "status": this.bookingResponse.status,
+    // }
       this.bookingService.updateBooking(this.orderId, bookingDTO).subscribe({
         next: (response: Object) => {
           debugger

@@ -16,6 +16,8 @@ import { AdminComponent } from './components/admin/admin.component';
 import { OrderAdminComponent } from './components/admin/order.admin/order.admin.component';
 import { RoomAdminComponent } from './components/admin/room.admin/room.admin.component';
 import { EditOrderAdminComponent } from './components/admin/order.admin/edit.order/edit.order.admin.component';
+import { EditRoomAdminComponent } from './components/admin/room.admin/edit.room/edit.room.admin.component';
+import { PaymentComponent } from './payment/payment.component';
 //import { HomeComponent } from './home/home.component';
 
 // Kết hợp cả hai tuyến đường vào một mảng duy nhất
@@ -38,7 +40,9 @@ const routes: Routes = [
   { path: 'room-admin', component:RoomAdminComponent},
   { path: 'edit-order-admin/:id', component:EditOrderAdminComponent},
 
+  { path: 'edit-room-admin/:id', component:EditRoomAdminComponent},
   // { path: 'admin', component: AdminComponent, canActivate:[AdminGuardFn] }, // check quyền admin mới được truy cập
+  { path: 'payment', component: PaymentComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: HomeComponent }
 ];

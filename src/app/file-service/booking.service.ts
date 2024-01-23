@@ -29,6 +29,7 @@ export class BookingService {
   }
 
   bookRoom(bookingDTO:BookingAndDetailDTO): Observable<any> {
+   // debugger
     return this.http.post(this.apiUrl, bookingDTO, this.apiConfig);
   }
 
