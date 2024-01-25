@@ -7,48 +7,48 @@
           <div class="text-center">
             <label for="orderId" class="form-label"><strong>Order ID:</strong></label>
             <input type="text" class="form-control" id="orderId" [(ngModel)]="orderId" name="orderId"
-              [value]="bookingResponse.id" disabled>
+              [value]="bookingResponse.id" [ngClass]="{'disabled-input': true}" disabled>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6">
             <label for="userId" class="form-label"><strong>User ID:</strong></label>
             <input type="text" class="form-control" id="userId" [(ngModel)]="user_id" name="userId"
-              [value]="bookingResponse.user_id" disabled>
+              [value]="bookingResponse.user_id" [ngClass]="{'disabled-input': true}" disabled>
           </div>
           <div class="col-md-6">
             <label for="fullName" class="form-label"><strong>Full Name:</strong></label>
             <input type="text" class="form-control" id="fullName" [(ngModel)]="full_name" name="full_name"
-              [value]="bookingResponse.full_name">
+              [value]="bookingResponse.full_name" [ngClass]="{'disabled-input': true}" disabled>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6">
             <label for="phoneNumber" class="form-label"><strong>Phone Number:</strong></label>
             <input type="text" class="form-control" id="phoneNumber" [(ngModel)]="phone_number" name="phone_number"
-              [value]="bookingResponse.phone_number">
+              [value]="bookingResponse.phone_number" [ngClass]="{'disabled-input': true}" disabled>
           </div>
           <div class="col-md-6">
             <label for="email" class="form-label"><strong>Email:</strong></label>
             <input type="text" class="form-control" id="email" 
-            [value]="bookingResponse.email">
+            [value]="bookingResponse.email" [ngClass]="{'disabled-input': true}" disabled>
           </div>
         </div>
         <div class="mb-3">
           <label for="address" class="form-label"><strong>Address:</strong></label>
           <input type="text" class="form-control" id="address" [(ngModel)]="address" name="address"
-            [value]="bookingResponse.address">
+            [value]="bookingResponse.address" [ngClass]="{'disabled-input': true}" disabled>
         </div>
         <div class="row">
           <div class="col-md-6">
             <label for="checkIn"><strong>Check in:</strong></label>
             <input type="text" class="form-control" id="checkIn" [(ngModel)]="check_in" name="check_in"
-              [value]="bookingResponse.check_in">
+              [value]="bookingResponse.check_in|date" [ngClass]="{'disabled-input': true}" disabled>
           </div>
           <div class="col-md-6">
             <label for="checkOut"><strong>Check out:</strong></label>
             <input type="text" class="form-control" id="checkOut" [(ngModel)]="check_out" name="check_out"
-              [value]="bookingResponse.check_out |date">
+              [value]="bookingResponse.check_out| date">
           </div>
         </div>
         <div class="mb-3">
@@ -65,14 +65,14 @@
           <div class="col-md-6">
             <label for="paymentMethod" class="form-label"><strong>Payment Method:</strong></label>
             <input type="text" class="form-control" id="paymentMethod" [value]="bookingResponse.payment_method"
-              disabled>
+            >
           </div>
         </div>
         <div class="row">
           <div class="col-md-6">
             <label for="paymentStatus" class="form-label"><strong>Payment Date:</strong></label>
             <input type="date" class="form-control" id="paymentDate" [(ngModel)]="payment_date" name="payment_status"
-              [value]="bookingResponse.payment_date" disabled>
+              [value]="bookingResponse.payment_date">
           </div>
           <div class="col-md-6">
             <div class="form-group">

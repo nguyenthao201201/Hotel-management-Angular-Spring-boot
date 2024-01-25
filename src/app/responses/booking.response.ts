@@ -5,10 +5,10 @@ export interface BookingResponse {
     full_name: string;
     phone_number: string;
     address: string;
-    // check_in: Date;
-    // check_out: Date;
-    check_in: string;
-    check_out: string;
+    check_in: Date;
+    check_out: Date;
+    // check_in: string;
+    // check_out: string;
     email: string;
     status: string;
     total_money: number;

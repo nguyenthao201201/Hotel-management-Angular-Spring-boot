@@ -31,8 +31,8 @@ export class EditOrderAdminComponent implements OnInit{
         phone_number: '',
         address: '',
         email: '',
-        check_in: '',
-        check_out: '',
+        check_in: new Date,
+        check_out: new Date,
         status: '',
         total_money: 0,
         payment_method: '',
@@ -70,24 +70,18 @@ export class EditOrderAdminComponent implements OnInit{
           this.bookingResponse.note = response.note;
           this.bookingResponse.total_money = response.total_money;
           this.bookingResponse.payment_method = response.payment_method;
-          this.bookingResponse.check_in = format(response.check_in , 'yyyy-MM-dd');      
+          this.bookingResponse.check_in = response.check_in;      
           this.bookingResponse.check_out = response.check_out;
+          this.bookingResponse.payment_method = response.payment_method;    
+          this.bookingResponse.status = response.status;     
           this.bookingResponse.booking_details = response.booking_details
             .map((booking_detail:any) => {
                 booking_detail.number_of_days = booking_detail.number_of_days
             //order_detail.total_money = order_detail.totalMoney
             return booking_detail;
           });        
-          this.bookingResponse.payment_method = response.payment_method;
-          // if (response.payment_date) {
-          //   this.bookingResponse.payment_date = new Date(
-          //     response.payment_date[0],
-          //     response.payment_date[1] - 1,
-          //     response.payment_date[2]
-          //   );
-          // }          
-          this.bookingResponse.status = response.status;     
-          debugger   
+    
+          // debugger   
         },      
         complete: () => {
           debugger;        
@@ -101,8 +95,8 @@ export class EditOrderAdminComponent implements OnInit{
     
     saveOrder(): void {    
     debugger
-    this.formattedCheckIn = format(this.bookingResponse.check_in, 'yyyy-MM-dd');
-    this.formattedCheckOut = format(this.check_out, 'yyyy-MM-dd');
+    // this.formattedCheckIn = format(this.bookingResponse.check_in, 'yyyy-MM-dd');
+    // this.formattedCheckOut = format(this.check_out, 'yyyy-MM-dd');
       const bookingDTO: any ={
       }
 
@@ -117,12 +111,12 @@ export class EditOrderAdminComponent implements OnInit{
       }
       else{ bookingDTO.note = this.note;}
 
-      bookingDTO.check_in = this.formattedCheckIn;
+      bookingDTO.check_in = this.bookingResponse.check_in;
       if (!this.check_out) {
         bookingDTO.check_out = this.bookingResponse.check_out;
       }
       else { 
-        bookingDTO.check_out = this.formattedCheckOut;
+        bookingDTO.check_out = format(this.check_out, 'yyyy-MM-dd');
       }
 
       if(this.total_money == 0){
@@ -140,22 +134,6 @@ export class EditOrderAdminComponent implements OnInit{
         bookingDTO.status = this.status;
       }
 
-    
-    // const bookingDTO: BookingDTO = {
-    //  // "id": this.bookingResponse.id,
-    //   "user_id": this.user_id,
-    //   "full_name": this.bookingResponse.full_name,
-    //   "phone_number": this.bookingResponse.phone_number,
-    //   "email": this.bookingResponse.email,
-    //   "address": this.bookingResponse.address,
-    //   "note": this.note,
-    //   "check_in": this.formattedCheckIn,
-    //   "check_out": this.formattedCheckOut,
-    //   "total_money": this.total_money,
-    //   "payment_method": this.bookingResponse.payment_method,
-    //   "payment_date": this.payment_date,
-    //   "status": this.bookingResponse.status,
-    // }
       this.bookingService.updateBooking(this.orderId, bookingDTO).subscribe({
         next: (response: Object) => {
           debugger

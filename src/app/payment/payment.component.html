@@ -1,34 +1,57 @@
 <!-- payment.component.html -->
-
-<div class="payment-form">
-    <h2>Thông tin thanh toán</h2>
-    <!-- Hiển thị các trường nhập liệu -->
-    <label for="mobile">Mobile:</label>
-    <input type="text" id="mobile" [(ngModel)]="mobile" name="mobile" />
-  
-    <label for="bankCode">Mã ngân hàng:</label>
-    <input type="text" id="bankCode" [(ngModel)]="bankCode" name="bankCode" />
-  
-    <label for="amount">Tài khoản</label>
-    <input type="text" id="accountNo" [(ngModel)]="accountNo" name="accountNo" />
-    <label for="payDate">Ngày thanh toán</label>
-    <input type="text" id="payDate" [(ngModel)]="payDate" name="payDate" />
-    <label for="debitAmount">Số tiền</label>
-    <input type="text" id="debitAmount" [(ngModel)]="debitAmount" name="debitAmount" />
-    <label for="respCode"> Res code</label>
-    <input type="text" id="respCode" [(ngModel)]="respCode" name="respCode" />
-    <label for="respDesc">Res desc</label>
-    <input type="text" id="respDesc" [(ngModel)]="respDesc" name="respDesc" />
-    <label for="traceTransfer">Trace transfer</label>
-    <input type="text" id="traceTransfer" [(ngModel)]="traceTransfer" name="traceTransfer" />
-    <label for="message">Message</label>
-    <input type="text" id="message" [(ngModel)]="messageType" name="message" />
-    <label for="orderCode">Order code</label>
-    <input type="text" id="orderCode" [(ngModel)]="orderCode" name="orderCode" />
+<div class="container">
+  <div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="payment-form">
+      <h2 style="text-align: center; margin-top: 20px;"> QUÉT MÃ THANH TOÁN TẠI ĐÂY</h2>
+      <!-- <h2>Thông tin thanh toán</h2> -->
+      <!-- Hiển thị các trường nhập liệu -->
+      <!-- <label for="mobile" class="form-lable">Mobile:</label>
+      <input type="text" id="mobile" class="form-control" [(ngModel)]="mobile" name="mobile" />
     
-
-    <!-- Nút thanh toán -->
-    <button (click)="makePayment()">Thanh toán</button>
-  
+      <label for="bankCode" class="form-label">Mã ngân hàng:</label>
+      <input type="text" id="bankCode" class="form-control" [(ngModel)]="bankCode" name="bankCode" />
+    
+      <label for="amount" class="form-label">Tài khoản</label>
+      <input type="text" id="accountNo" class="form-control" [(ngModel)]="accountNo" name="accountNo" />
+      <label for="payDate" class="form-label">Ngày thanh toán</label>
+      <input type="text" id="payDate" class="form-control" [(ngModel)]="payDate" name="payDate" />
+      <label for="debitAmount" class="form-label">Số tiền</label>
+      <input type="text" id="debitAmount" class="form-control" [(ngModel)]="debitAmount" name="debitAmount" /> -->
+      <!-- <label for="respCode" class="form-label" > Res code</label>
+      <input type="text" id="respCode" class="form-control" [(ngModel)]="respCode" name="respCode" />
+      <label for="respDesc" class="form-label">Res desc</label>
+      <input type="text" id="respDesc" class="form-control" [(ngModel)]="respDesc" name="respDesc" />
+      <label for="traceTransfer" class="form-label">Trace transfer</label>
+      <input type="text" id="traceTransfer" [(ngModel)]="traceTransfer" name="traceTransfer" />
+      <label for="message" class="form-label" >Message</label>
+      <input type="text" id="message" class="form-control" [(ngModel)]="messageType" name="message" /> -->
+      <!-- <label for="orderCode" class="form-label">Order code</label>
+      <input type="text" id="orderCode" class="form-control" [(ngModel)]="orderCode" name="orderCode" />
+      <label for="userName" class="form-label">User name</label>
+      <input type="text" id="userName" class="form-control" [(ngModel)]="userName" name="userName" /> -->
+      <!-- <label for="qrInfor" class="form-label">qrInfor</label>
+      <input type="text" id="qrInfor" class="form-control" [(ngModel)]="qrInfor" name="qrInfor" /> -->
+      <div class="image-container">
+        
+        <img src="https://img.vietqr.io/image/BIDV-8830775906-compact2.png?amount=4000000&addInfo=Thanh toan don hang&accountName=NGUYEN THI THU THAO'" alt="QR Code" 
+        style="width: 70%; height: auto"
+        (click)="makePayment()" />
+        <!-- <img  class="centered-image" [src]="getQRCodeImage()" alt="QR Code"
+        (click)="makePayment()"> -->
+      </div>
+      <!-- Nút thanh toán -->
+      <!-- <div class="text-center mt-3">
+        <button class="btn btn-gradient" type="button"
+          (click)="makePayment()"
+        >Thanh toán</button>
+      </div> -->
+      <!-- <button (click)="makePayment()">Thanh toán</button> -->
+    <!--  -->
+    </div>
   </div>
+  </div>
+  
+</div>
+
   

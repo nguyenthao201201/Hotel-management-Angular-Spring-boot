@@ -14,11 +14,25 @@
                 <li>  <i class="bi bi-globe2"></i> https://kimbaohotel.com.vn</li>
                 
             </ul>
+            <h2>Tra cứu thông tin cây ATM gần nhất:</h2>
+            <label for="fname">Nhập tên chi nhánh:</label>
+            <input type="text" id="fname" 
+            [(ngModel)]="Name" name="Name" placeholder="Tên chi nhánh...">
+
+            <input type="submit" value="Tìm kiếm"
+            (click)="searchATM()">
+
+            <textarea id="branchName" name="branchName" rows="4" cols="50" placeholder="Thông tin..."
+            [(ngModel)]="informationATM" 
+            ></textarea>
+            <!-- <div class="col-md-6">
+                <input type="text">
+            </div> -->
         </div>
         <div class = "contact-section">
             <img src="assets/contactadd.png" alt="Địa chỉ" >
         </div>
     </div>
 </div>
-  
+  <!--  -->
 <app-footer></app-footer>

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./room.admin.component.scss']
 })
 export class RoomAdminComponent {
-  rooms: Room[] = [];
+  rooms: RoomResponse[] = [];
   currentPage: number =  0;
   itemsPerPage: number = 10;
   pages: number[] = [];
@@ -22,21 +22,21 @@ constructor(
   private router: Router
 ) {}
 ngOnInit(): void {
- // debugger
+ debugger
   this.getAllRooms(this.keyword, this.currentPage, this.itemsPerPage);
 }
 
 getAllRooms(keyword: string, page: number, limit: number) {
-  //debugger
+  debugger
   this.roomService.getAllRooms(keyword, page, limit).subscribe({
     next: (response: any) => {
-      //debugger        
+      debugger        
       this.rooms = response.rooms;
       this.totalPages = response.totalPages;
       this.visiblePages = this.generateVisiblePageArray(this.currentPage, this.totalPages);
     },
     complete: () => {
-      //debugger;
+      debugger;
     },
     error: (error: any) => {
       //debugger;
@@ -65,9 +65,9 @@ getAllRooms(keyword: string, page: number, limit: number) {
         .map((_, index) => startPage + index);
   }
 
-  editRoom(room:Room) {
+  editRoom(room:RoomResponse) {
     debugger
-    this.router.navigate(['/edit-room-admin', room.roomId]);
+    this.router.navigate(['/edit-room-admin', room.room_id]);
   }
 
 }

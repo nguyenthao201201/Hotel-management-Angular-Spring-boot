@@ -11,3 +11,9 @@
     border: 1px solid #FFC107;
     color: black;
 }
+
+.disabled-input {
+  background-color: #f0f0f0; /* Màu xám nhạt hoặc màu khác tùy chọn */
+  color: #555; /* Màu chữ cho môi trường disabled */
+  cursor: not-allowed; /* Đổi hình con trỏ khi hover trên phần disabled */
+}

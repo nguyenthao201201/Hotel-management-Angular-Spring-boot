@@ -1,0 +1,24 @@
+.btn-gradient {
+
+    background: linear-gradient(to right, #FFC107, rgb(188, 237, 43));
+    color: black;
+    border-radius: 30px;
+    width: 200px;
+  }
+
+  /* Trong file .css hoặc .scss của component */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: #FFC107 1px solid;
+    
+  }
+  
+  .centered-image {
+    max-width: 100%; /* Đảm bảo ảnh không vượt quá kích thước của container */
+    max-height: 100%;
+    width: auto;
+    height: auto;
+  }
+  

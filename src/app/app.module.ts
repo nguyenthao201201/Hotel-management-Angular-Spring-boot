@@ -24,7 +24,6 @@ import {
           HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { TokenInterceptor } from './interceptors/token.interceptor';
-
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
@@ -34,6 +33,7 @@ import { RoomAdminComponent } from './components/admin/room.admin/room.admin.com
 import { EditOrderAdminComponent } from './components/admin/order.admin/edit.order/edit.order.admin.component';
 import { EditRoomAdminComponent } from './components/admin/room.admin/edit.room/edit.room.admin.component';
 import { PaymentComponent } from './payment/payment.component';
+// import { AtmsearchComponent } from './atmsearch/atmsearch.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +51,6 @@ import { PaymentComponent } from './payment/payment.component';
     LoginComponent,
     RegisterComponent,
     OrderConfirmComponent,
-    //RegistersComponent,
     UserProfileComponent,
     AdminComponent,
     OrderAdminComponent,
@@ -59,6 +58,7 @@ import { PaymentComponent } from './payment/payment.component';
     EditOrderAdminComponent,
     EditRoomAdminComponent,
     PaymentComponent,
+
   ],
   imports: [
     ReactiveFormsModule,

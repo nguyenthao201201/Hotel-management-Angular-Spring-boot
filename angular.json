@@ -8,7 +8,7 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
-        }
+        } 
       },
       "root": "",
       "sourceRoot": "src",
@@ -17,6 +17,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "lodash"
+           ],
             "outputPath": "dist/hotel-manager",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -38,7 +41,8 @@
             ],
             
             "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "node_modules/core-js/modules/es.array.index-of.js"
             ]
             
           },
@@ -71,6 +75,11 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "hotel-manager:build",
+            "proxyConfig": "proxy.conf.json"
+          },
+          
           "configurations": {
             "production": {
               "browserTarget": "hotel-manager:build:production"
