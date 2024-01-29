@@ -2,7 +2,12 @@
     <header class="header text-white d-flex justify-content-between">
         <h1 class="header-title">TRANG QUẢN LÝ THUÊ PHÒNG KHÁCH SẠN KIM BẢO</h1>
         <!-- Logout Button -->
-        <button class="btn btn-danger btn-sm" (click)="logout()">Đăng xuất</button>
+        <div class="btn-group" role="group">
+            <button class="btn btn-danger btn-sm" (click)="logout()">Đăng xuất</button>
+            <button class = "btn btn-warning btn-sm" (click)="backup()">Backup</button>
+            
+        </div>
+        
     </header>
     <div class="row">
         <nav id="sidebar" class="col-md-2 col-lg-2 d-md-block bg-light sidebar">

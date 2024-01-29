@@ -34,7 +34,8 @@
       <input type="text" id="qrInfor" class="form-control" [(ngModel)]="qrInfor" name="qrInfor" /> -->
       <div class="image-container">
         
-        <img src="https://img.vietqr.io/image/BIDV-8830775906-compact2.png?amount=4000000&addInfo=Thanh toan don hang&accountName=NGUYEN THI THU THAO'" alt="QR Code" 
+        <img [src]="'https://img.vietqr.io/image/BIDV-8830775906-compact2.png?amount=' + bookingDetails.total_money + '&addInfo='+ bookingDetails.details +'&accountName=NGUYEN THI THU THAO'" alt="QR Code"
+        
         style="width: 70%; height: auto"
         (click)="makePayment()" />
         <!-- <img  class="centered-image" [src]="getQRCodeImage()" alt="QR Code"

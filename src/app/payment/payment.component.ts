@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PaymentService } from 'src/app/file-service/payment.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BookingInfoService } from 'src/app/file-service/booking-info.service';
 //import * as QRCode from 'qrcode-generator';
 import * as QRCode from 'qrcode-generator';
 import { Router } from '@angular/router';
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.scss']
 })
-export class PaymentComponent {
+export class PaymentComponent implements  OnInit{
 //  qrData: string = "0002010102122623000697048801091233211245204123453037045405387005802VN5918Trung tam the test6005HANOI62320105166160311BENH VIEN E0704BV01630441B1";
 qrData: string ="00020101021238540010A00000072701240006970418011088307759060208QRIBFTTA5303704540115802VN62230819Thanh toan don hang6304AFBF";
   qrCode: any;
@@ -41,7 +42,15 @@ qrData: string ="00020101021238540010A00000072701240006970418011088307759060208Q
         lang: String = 'VN';
         optType: String = 'SOFTOTP';
 
+
+  
+  bookingDetails: any;
+  ngOnInit(): void {
+   debugger
+    this.bookingDetails = this.bookingInfoService.getBookingDetails();
+  }
   constructor(private paymentService: PaymentService,
+    private bookingInfoService: BookingInfoService,
     private http: HttpClient,
     private router: Router
   

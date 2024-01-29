@@ -28,7 +28,7 @@ export class OrderConfirmComponent implements OnInit{
    }
 
   ngOnInit(): void {
-    debugger
+    //debugger
     this.bookingDetails = this.bookingInfoService.getBookingDetails();
   }
 // Khai báo các biến paymentMethod cho từng loại thanh toán
@@ -87,6 +87,11 @@ pay() {
     (response: any) => {
       console.log('Cập nhật trạng thái và thanh toán thành công', response);
       alert('Vui lòng đăng nhập tài khoản ngân hàng và quét mã!');
+      this.bookingInfoService.setBookingDetails(
+        {
+       "total_money": this.bookingDetails.total_price_room,
+       "details": 'Than toán đơn hàng số '+this.bookingDetails.booking_id,
+        });
     this.router.navigate(['/payment']);
       // Chuyển hướng hoặc thực hiện các thao tác khác sau khi thanh toán thành công
     },
@@ -97,29 +102,4 @@ pay() {
   );
 }
 
-  // pay() {
-  //   // Gọi API để cập nhật trạng thái của booking
-  //   const updateBookingStatus$ = this.bookingService.updateBookingStatus(this.bookingDetails.booking_id, 'Paid');
-  
-  //   // Gọi API để cập nhật thanh toán
-  //   const total_money = this.bookingDetails.total_price_room;
-  //   const updateBookingPayment$ = this.bookingService.updateBookingPayment(
-  //     this.bookingDetails.booking_id,
-  //     this.paymentMethod,
-  //     this.paymentDate,
-  //     total_money
-  //   );
-  
-  //   // Kết hợp cả hai observable và chờ cho đến khi cả hai đều hoàn thành
-  //   forkJoin([updateBookingStatus$, updateBookingPayment$]).subscribe(
-  //     (responses: any) => {
-  //       console.log('Cập nhật trạng thái và thanh toán thành công', responses);
-  //       alert('Thanh toán thành công!');
-  //       // Chuyển hướng hoặc thực hiện các thao tác khác sau khi thanh toán thành công
-  //     },
-  //     (errors: any) => {
-  //       console.log('Có lỗi khi cập nhật trạng thái hoặc thanh toán', errors);
-  //       // Xử lý lỗi và thông báo lỗi cho người dùng nếu cần
-  //     }
-  //   );
   }

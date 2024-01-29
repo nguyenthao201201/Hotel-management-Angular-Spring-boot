@@ -191,7 +191,6 @@ export class OrderComponent implements OnInit {
             //debugger
             console.log('Room status updated successfully:', roomResponse);
             //debugger
-            // Sau khi cập nhật trạng thái phòng, chuyển hướng hoặc thực hiện các thao tác khác
             alert('Lưu thông tin thành công, bạn đã đặt thành công phòng: ' + this.room_number + 
             ' (' + this.room_type + ') vào ngày ' + this.formattedCheckIn + ' đến ngày ' + this.formattedCheckOut + 
             '. Chúng tôi sẽ liên hệ lại bạn sớm nhất. Xin cảm ơn!');
@@ -200,7 +199,7 @@ export class OrderComponent implements OnInit {
           },
           (roomError: any) => {
             //debugger
-            // Xử lý lỗi cập nhật trạng thái phòng nếu có
+            // Xử lý lỗi cập nhật trạng thái
             console.error('Error updating room status:', roomError);
             alert('Lưu thông tin thành công, nhưng có lỗi khi cập nhật phòng đặt, chúng tôi sẽ liên hệ lại bạn sớm nhất. Xin cảm ơn!');
             //this.router.navigate(['/confirm']);
@@ -208,7 +207,7 @@ export class OrderComponent implements OnInit {
         );
       },
       (error: any) => {
-        // Xử lý lỗi đặt phòng nếu có
+        // Xử lý lỗi đặt phòng 
         console.error('Error booking room:', error);
         alert('Lưu thông tin thất bại');
       }
@@ -229,18 +228,3 @@ export class OrderComponent implements OnInit {
   }
   
 }
-
-// // Lấy bookingId từ response hoặc từ dữ liệu khác nếu có
-// const bookingId = response.id; 
-// // Cập nhật trạng thái của booking
-// this.bookingService.updateBookingStatus(bookingId, 'unpaid').subscribe({
-//   next: () => {
-//     alert('Cập nhật trạng thái thành công');
-//     // this.router.navigate(['/confirm']);
-//   },
-//   error: (error: any) => {
-//     alert('Lỗi khi cập nhật trạng thái');
-//     console.error('Error updating booking status:', error);
-//   }
-// });
-// 
